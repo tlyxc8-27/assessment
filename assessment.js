@@ -26,15 +26,28 @@ return;//名前が空の時は関数の処理を終了する
   resultDivision.innerText = '';
   
   //結果を追加
-  const header = document.createElement('h3');//h3タグを作る
-    header.innerText = '診断結果';//中身の文章を設定
-    resultDivision.appendChild(header);
+  //headerDividedの作成
+  const headerDivision = document.createElement('div');//h3タグを作る
+    headerDivision.innerText = '診断結果';//中身の文章を設定
+    headerDivision.setAttribute('class', 'card-header');
+
+    //bodyDividedの作成
+    const bodyDivision = document.createElement('div');
+    bodyDivision.setAttribute('class','card-body');
 
     const paragraph = document.createElement('p');
+    paragraph.setAttribute('class', 'card-text');
     const result = assessment(userName);//診断結果を取得
     paragraph.innerText = result;
-    resultDivision.appendChild(paragraph);
+    bodyDivision.appendChild(paragraph);
+
   //divの子要素として追加
+
+  //resultDivided に　card　スタイルを追加
+  resultDivision.setAttribute('class', 'card');
+
+  resultDivision.appendChild(headerDivision);
+  resultDivision.appendChild(bodyDivision);
 
   // ツイートエリアの作成
   tweetDivision.innerText = '';
